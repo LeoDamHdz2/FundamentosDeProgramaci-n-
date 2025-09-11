@@ -3,12 +3,14 @@ import java.util.Scanner;
 public class Areas {
     public static void main (String[] args) {
         Scanner sc = new Scanner(System.in);
+        int op=0;
+        do{
         System.out.println("1. Cuadrado");
         System.out.println("2. Rectángulo");
         System.out.println("3. Triángulo");
         System.out.println("4. Círculo");
         System.out.print("Elige una opción: ");
-        int op = sc.nextInt();
+        op = sc.nextInt();
 
         switch (op) {
             case 1:
@@ -38,5 +40,6 @@ public class Areas {
             default:
                 System.out.println("Opción inválida");
         }
+        }while(op>4||op<1);
     }
 }

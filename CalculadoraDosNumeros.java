@@ -10,33 +10,36 @@ public class CalculadoraDosNumeros {
         int numero1 = sc.nextInt();
         System.out.println("Ingrsa otro numero: ");
         int numero2 = sc.nextInt();
-        System.out.println("Ingresa el operador (+, -, * o /): ");
-        String operador = sc2.nextLine();
-        
-        switch (operador){
-            case "+":
-                resultado = numero1 + numero2;
-                break;
-            case "-":
-                resultado = numero1 - numero2;
-                break;
-            case "*":
-                resultado = numero1 * numero2;
-                break;
-            case "/":
-                if(numero2==0){
-                    System.out.println("ERROR NO SE PUEDE DIVIDR ENTRE 0");
-                    mostrar = 0;
-                }else{
-                    resultado = numero1 / numero2;
-                }
-                break;
-            default:
-                System.out.println("INGRESA UN OPERADOR VALIDO");
-                mostrar = 0;
-                break;
-        }
-        if (mostrar == 1){
+        do{
+            mostrar= 0;
+            System.out.println("Ingresa el operador (+, -, * o /): ");
+            String operador = sc2.nextLine();
+            
+            switch (operador){
+                case "+":
+                    resultado = numero1 + numero2;
+                    break;
+                case "-":
+                    resultado = numero1 - numero2;
+                    break;
+                case "*":
+                    resultado = numero1 * numero2;
+                    break;
+                case "/":
+                    if(numero2==0){
+                        System.out.println("ERROR NO SE PUEDE DIVIDR ENTRE 0");
+                        mostrar = 1;
+                    }else{
+                        resultado = numero1 / numero2;
+                    }
+                    break;
+                default:
+                    System.out.println("INGRESA UN OPERADOR VALIDO");
+                    mostrar = 1;
+                    break;
+            }
+        }while (mostrar!=0);
+        if (mostrar == 0){
             System.out.println("El resultado es: " + resultado);
         }
     }
